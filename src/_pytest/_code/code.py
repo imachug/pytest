@@ -51,8 +51,6 @@ class Code:
     def __init__(self, rawcode) -> None:
         if not hasattr(rawcode, "co_filename"):
             rawcode = getrawcode(rawcode)
-        if not isinstance(rawcode, CodeType):
-            raise TypeError("not a code object: {!r}".format(rawcode))
         self.filename = rawcode.co_filename
         self.firstlineno = rawcode.co_firstlineno - 1
         self.name = rawcode.co_name
